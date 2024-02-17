@@ -1,0 +1,14 @@
+.tripcard {
+  border: 3px solid #f9f9f9;
+  border-radius: 0.313rem;
+  cursor: pointer;
+
+  &__image {
+    width: 14.375rem;
+    height: 13.125rem;
+  }
+
+  &__info {
+    padding: 1.25rem;
+  }
+}

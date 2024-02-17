@@ -1,0 +1,17 @@
+.newtripbutton {
+  display: inline-block;
+  align-items: center;
+  width: 12.5rem;
+  height: 12.5rem;
+  background-color: #f2f4f8;
+  font-weight: 700;
+  border: none;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+  font-size: 20px;
+
+  &:hover {
+    background-color: #c9cbcf;
+    transition: background-color 0.4s ease;
+  }
+}
