@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { TripCardProps } from '../TripCard/TripCard';
 import { TripCard } from '../TripCard';
 import { NewTripButton } from '../NewTripButton';
+import { Modal } from '../Modal';
+import { NewTripForm } from '../NewTripForm/';
 import styles from './TripList.module.scss';
 
 const trips: TripCardProps[] = [
@@ -14,12 +17,27 @@ const trips: TripCardProps[] = [
 ];
 
 const TripList: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <section className={styles.triplist}>
       {trips.map(({ id, image, city, dates }) => (
         <TripCard key={id} id={id} image={image} city={city} dates={dates} />
       ))}
-      <NewTripButton />
+      <NewTripButton onClick={openModal} />
+      {showModal && (
+        <Modal title="Create trip" onClose={closeModal}>
+          <NewTripForm onClose={closeModal} />
+        </Modal>
+      )}
     </section>
   );
 };
