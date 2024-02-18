@@ -1,4 +1,7 @@
+import { useId } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useTripContext } from '../../providers/TripProvider';
+import { TripCardProps } from '../TripCard/TripCard';
 import styles from './NewTripForm.module.scss';
 
 export interface FormValues {
@@ -19,11 +22,25 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
     watch,
   } = useForm<FormValues>();
 
+  const { addTrip } = useTripContext();
+
   const startDate = watch('startDate');
-  const endDate = watch('endDate');
+
+  const id = useId();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+    const fromDate = new Date(data.startDate).toLocaleDateString();
+    const toDate = new Date(data.endDate).toLocaleDateString();
+
+    // винести у функцію helper?
+
+    const newTrip: TripCardProps = {
+      id,
+      image: '',
+      city: data.city,
+      dates: `${fromDate} - ${toDate}`,
+    };
+    addTrip(newTrip);
     onClose();
   };
 

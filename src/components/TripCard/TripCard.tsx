@@ -1,7 +1,7 @@
 import styles from './TripCard.module.scss';
 
 export interface TripCardProps {
-  id: number;
+  id: string;
   image: string;
   city: string;
   dates: string;
