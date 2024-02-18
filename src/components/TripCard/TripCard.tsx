@@ -9,7 +9,7 @@ export interface TripCardProps {
 
 const TripCard: React.FC<TripCardProps> = ({ id, image, city, dates }) => {
   return (
-    <article className={styles.tripcard}>
+    <article id={id} className={styles.tripcard}>
       <img
         className={styles.tripcard__image}
         src={image}

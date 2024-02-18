@@ -1,7 +1,9 @@
 import { useId } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTripContext } from '../../providers/TripProvider';
 import { TripCardProps } from '../TripCard/TripCard';
+import { Button } from '../Button';
+import { cities } from '../../data/cities';
 import styles from './NewTripForm.module.scss';
 
 export interface FormValues {
@@ -20,6 +22,7 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
     handleSubmit,
     formState: { errors },
     watch,
+    control,
   } = useForm<FormValues>();
 
   const { addTrip } = useTripContext();
@@ -31,13 +34,15 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const fromDate = new Date(data.startDate).toLocaleDateString();
     const toDate = new Date(data.endDate).toLocaleDateString();
+    const selectedCityId = data.city;
+    const selectedCity = cities.find((city) => city.id === selectedCityId);
 
     // винести у функцію helper?
 
     const newTrip: TripCardProps = {
       id,
-      image: '',
-      city: data.city,
+      image: selectedCity.image,
+      city: selectedCity.title,
       dates: `${fromDate} - ${toDate}`,
     };
     addTrip(newTrip);
@@ -48,10 +53,24 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="city">City:</label>
-        <input
-          type="text"
-          id="city"
-          {...register('city', { required: true })}
+        <Controller
+          name="city"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <select
+              {...field}
+              required
+              aria-invalid={errors.city ? 'true' : 'false'}
+            >
+              <option value="">Please select a city</option>
+              {cities.map(({ id, title }) => (
+                <option key={id} value={id}>
+                  {title}
+                </option>
+              ))}
+            </select>
+          )}
         />
         {errors.city && <span>This field is required</span>}
       </div>
@@ -91,12 +110,8 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
         {errors.endDate && <span>{errors.endDate.message}</span>}
       </div>
       <div>
-        <button className={styles.btn_cancel} onClick={onClose}>
-          Cancel
-        </button>
-        <button type="submit" className={styles.btn_save}>
-          Save
-        </button>
+        <Button label="Cancel" onClick={onClose} variant="regular" />
+        <Button type="submit" label="Save" variant="secondary" />
       </div>
     </form>
   );
