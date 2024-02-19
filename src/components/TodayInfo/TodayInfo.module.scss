@@ -1,7 +1,14 @@
 .todayinfo {
-  width: 300px;
-  height: 90vh;
-  background-color: rgb(99, 99, 229);
+  min-width: 29.5rem;
+  height: 100vh;
+  overflow: hidden;
+  padding: 1rem;
+  background-image: url(../../assets/weather/wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   font-weight: bold;
 }

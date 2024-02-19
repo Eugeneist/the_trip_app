@@ -3,9 +3,7 @@ import { getTodayWeather } from '../../helpers';
 import { useTripContext } from '../../providers/TripProvider';
 import styles from './TripCard.module.scss';
 
-// const key = process.env.API_KEY;
-// const key = 'GHKZSUEP7Q6TUTY2WDYCKT7ES';
-const key = 'RCGZHLUGV7BJP85PC4Z5F64WV';
+const key = process.env.API_KEY;
 
 export interface TripCardProps {
   id: string;
@@ -20,6 +18,7 @@ const TripCard: React.FC<TripCardProps> = ({ id, image, city, dates }) => {
   const getWeather = useCallback(async () => {
     try {
       const currentData = await getTodayWeather(city, key);
+      console.log(currentData);
       addTodayWeather(currentData);
     } catch (error) {
       console.error('Error fetching weather:', error);

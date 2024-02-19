@@ -44,6 +44,7 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
       day: getDayOfWeek(data.days[0].datetime),
       temperature: Math.round(data.days[0].temp),
       city: data.address,
+      icon: data.days[0].icon,
     });
   };
 

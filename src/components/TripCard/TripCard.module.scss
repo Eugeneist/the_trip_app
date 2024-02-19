@@ -4,11 +4,23 @@
   cursor: pointer;
 
   &__image {
-    width: 14.375rem;
-    height: 13.125rem;
+    width: 12rem;
+    height: 11rem;
   }
 
   &__info {
-    padding: 1.25rem;
+    padding: 0.8rem;
+  }
+
+  &__city {
+    font-size: 1rem;
+    margin: 0;
+    padding-bottom: 0.2rem;
+  }
+
+  &__dates {
+    font-size: 0.8rem;
+    color: darkgray;
+    margin: 0;
   }
 }

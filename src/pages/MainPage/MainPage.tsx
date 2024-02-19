@@ -4,7 +4,9 @@ import { TripList, TodayInfo } from '../../components';
 const MainPage = () => {
   return (
     <main className={styles.main}>
-      <TripList />
+      <div>
+        <TripList />
+      </div>
       <TodayInfo />
     </main>
   );
