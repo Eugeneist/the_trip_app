@@ -1,10 +1,13 @@
 import { createContext, useContext, useState } from 'react';
 import { kyiv } from '../assets/cities/cities';
 import { TripCardProps } from '../components/TripCard/TripCard';
+import { getDayOfWeek } from '../helpers';
 
 interface TripContextType {
   trips: TripCardProps[];
+  currentTrip: any;
   addTrip: (trip: TripCardProps) => void;
+  addTodayWeather: (data: any) => void;
 }
 
 interface TripProviderProps {
@@ -30,14 +33,25 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
       dates: '17.02.2024 - 28.02.2024',
     },
   ]);
+  const [currentTrip, setCurrentTrip] = useState({});
 
   const addTrip = (trip: TripCardProps) => {
-    setTrips([...trips, trip]);
+    setTrips((prevTrips) => [...prevTrips, trip]);
+  };
+
+  const addTodayWeather = (data: any) => {
+    setCurrentTrip({
+      day: getDayOfWeek(data.days[0].datetime),
+      temperature: Math.round(data.days[0].temp),
+      city: data.address,
+    });
   };
 
   const tripContextValue: TripContextType = {
     trips,
+    currentTrip,
     addTrip,
+    addTodayWeather,
   };
 
   return (
