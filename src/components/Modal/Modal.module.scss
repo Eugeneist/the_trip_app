@@ -2,8 +2,7 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  width: 400px;
+  width: 37rem;
 
   &__overlay {
     position: fixed;
@@ -20,6 +19,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
+    padding: 0.938rem 1.25rem;
     align-items: center;
     margin-bottom: 10px;
 
@@ -28,8 +28,13 @@
     }
   }
 
-  &__body {
-    margin-bottom: 20px;
+  &__title {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  &__header {
+    border-bottom: 1px solid #d8d8d8;
   }
 
   &__footer {
@@ -44,4 +49,8 @@
   cursor: pointer;
   font-size: 20px;
   color: #999;
+
+  &:hover {
+    color: #464545;
+  }
 }

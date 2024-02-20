@@ -1,0 +1,59 @@
+.form {
+  padding: 1.25rem;
+
+  &__inner {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-left: 10px;
+    position: relative;
+
+    &::before {
+      content: '*';
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: red;
+    }
+  }
+
+  &__input {
+    height: 24px;
+    padding: 5px;
+    margin-bottom: 0.6rem;
+    border: 1px solid #d8d8d8;
+    color: #9a9898;
+    cursor: pointer;
+  }
+
+  &__bigger {
+    height: 35px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: end;
+    position: relative;
+    // border-top: 1px solid #d8d8d8;
+
+    &::before {
+      content: '';
+      top: -20px;
+      right: -20px;
+      position: absolute;
+      width: 36.8rem;
+      border: 1px solid #d8d8d8;
+    }
+  }
+}

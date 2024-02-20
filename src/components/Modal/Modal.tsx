@@ -7,11 +7,19 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ title, onClose, children }) => {
+  const handleOverlayClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={styles.modal__overlay}>
+    <div className={styles.modal__overlay} onClick={handleOverlayClick}>
       <div className={styles.modal}>
         <header className={styles.modal__header}>
-          <h2>{title}</h2>
+          <h2 className={styles.modal__title}>{title}</h2>
           <button className={styles.btn_close} onClick={onClose}>
             ✕
           </button>

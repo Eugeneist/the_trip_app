@@ -14,7 +14,6 @@ const TodayWidget: React.FC<TodayWidgetProps> = ({
   city,
   icon,
 }) => {
-  console.log('icon:', icon);
   return (
     <article className={styles.todaywidget}>
       <h2 className={styles.todaywidget__day}>{day ? day : 'N/A'}</h2>

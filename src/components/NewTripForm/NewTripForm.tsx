@@ -43,75 +43,95 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
       id,
       image: selectedCity.image,
       city: selectedCity.title,
-      dates: `${fromDate} - ${toDate}`,
+      dates: [fromDate, toDate],
     };
     addTrip(newTrip);
+    console.log(newTrip);
     onClose();
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="city">City:</label>
-        <Controller
-          name="city"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <select
-              {...field}
-              required
-              aria-invalid={errors.city ? 'true' : 'false'}
-            >
-              <option value="">Please select a city</option>
-              {cities.map(({ id, title }) => (
-                <option key={id} value={id}>
-                  {title}
-                </option>
-              ))}
-            </select>
-          )}
-        />
-        {errors.city && <span>This field is required</span>}
-      </div>
-      <div>
-        <label htmlFor="startDate">Start Date:</label>
-        <input
-          type="date"
-          id="startDate"
-          {...register('startDate', { required: true })}
-        />
-        {errors.startDate && <span>This field is required</span>}
-      </div>
-      <div>
-        <label htmlFor="endDate">End Date:</label>
-        <input
-          type="date"
-          id="endDate"
-          {...register('endDate', {
-            required: true,
-            validate: {
-              notBeforeStartDate: (value) =>
-                value >= startDate ||
-                'End date should not be before start date',
-              withinNext15Days: (value) => {
-                const currentDate = new Date();
-                const next15Days = new Date();
-                next15Days.setDate(currentDate.getDate() + 15);
-                return (
-                  (value >= currentDate.toISOString().split('T')[0] &&
-                    value <= next15Days.toISOString().split('T')[0]) ||
-                  'Start date and end date should be within the next 15 days'
-                );
+      <div className={styles.form__inner}>
+        <div className={styles.form__field}>
+          <label className={styles.form__label} htmlFor="city">
+            City:
+          </label>
+          <Controller
+            name="city"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <select
+                id="sel"
+                className={`${styles.form__input} ${styles.form__bigger}`}
+                {...field}
+                required
+                aria-invalid={errors.city ? 'true' : 'false'}
+              >
+                <option value="">Please select a city</option>
+                {cities.map(({ id, title }) => (
+                  <option key={id} value={id}>
+                    {title}
+                  </option>
+                ))}
+              </select>
+            )}
+          />
+          {errors.city && <span>This field is required</span>}
+        </div>
+        <div className={styles.form__field}>
+          <label className={styles.form__label} htmlFor="startDate">
+            Start Date:
+          </label>
+          <input
+            className={styles.form__input}
+            placeholder="Select date"
+            type="date"
+            id="startDate"
+            {...register('startDate', { required: true })}
+          />
+          {errors.startDate && <span>This field is required</span>}
+        </div>
+        <div className={styles.form__field}>
+          <label className={styles.form__label} htmlFor="endDate">
+            End Date:
+          </label>
+          <input
+            className={styles.form__input}
+            placeholder="Select date"
+            type="date"
+            id="endDate"
+            {...register('endDate', {
+              required: true,
+              validate: {
+                notBeforeStartDate: (value) =>
+                  value >= startDate ||
+                  'End date should not be before start date',
+                withinNext15Days: (value) => {
+                  const currentDate = new Date();
+                  const next15Days = new Date();
+                  next15Days.setDate(currentDate.getDate() + 15);
+                  return (
+                    (value >= currentDate.toISOString().split('T')[0] &&
+                      value <= next15Days.toISOString().split('T')[0]) ||
+                    'Start date and end date should be within the next 15 days'
+                  );
+                },
               },
-            },
-          })}
-        />
-        {errors.endDate && <span>{errors.endDate.message}</span>}
+            })}
+          />
+          {errors.endDate && <span>{errors.endDate.message}</span>}
+        </div>
       </div>
-      <div>
-        <Button label="Cancel" onClick={onClose} variant="regular" />
-        <Button type="submit" label="Save" variant="secondary" />
+      <div className={styles.form__buttons}>
+        <Button
+          label="Cancel"
+          onClick={onClose}
+          variant="regular"
+          size="small"
+        />
+        <Button type="submit" label="Save" variant="secondary" size="small" />
       </div>
     </form>
   );

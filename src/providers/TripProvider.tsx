@@ -30,7 +30,7 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
       id: '0',
       image: kyiv,
       city: 'Kyiv',
-      dates: '17.02.2024 - 28.02.2024',
+      dates: ['29.02.2024', '4.03.2024'],
     },
   ]);
   const [currentTrip, setCurrentTrip] = useState({});
@@ -42,9 +42,11 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
   const addTodayWeather = (data: any) => {
     setCurrentTrip({
       day: getDayOfWeek(data.days[0].datetime),
-      temperature: Math.round(data.days[0].temp),
+      temperature:
+        Math.round(data.days[0].temp) || Math.round(data.days[0].tempmax),
       city: data.address,
       icon: data.days[0].icon,
+      firstDayTrip: data.firstDayTrip,
     });
   };
 

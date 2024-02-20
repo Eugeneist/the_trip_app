@@ -6,3 +6,4 @@ export { NewTripForm } from './NewTripForm';
 export { Modal } from './Modal';
 export { TodayInfo } from './TodayInfo';
 export { TodayWidget } from './Weather';
+export { Timer } from './Timer';

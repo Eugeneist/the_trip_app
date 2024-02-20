@@ -1,0 +1,26 @@
+.timer {
+  display: flex;
+  gap: 4rem;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  &__numbers {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+
+  &__words {
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+}

@@ -27,7 +27,6 @@ const getWeatherIcon = (icon: string) => {
     clear_day: sunny,
     clear_night: black_low_cloud,
   };
-  console.log(target);
   return icons[target];
 };
 
