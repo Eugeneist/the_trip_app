@@ -1,0 +1,16 @@
+.forecastlist {
+  padding-bottom: 1rem;
+
+  &__title {
+    font-size: 1.2rem;
+    margin: 0;
+    padding-bottom: 2rem;
+    padding-left: 1.3rem;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+  }
+}

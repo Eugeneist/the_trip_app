@@ -4,6 +4,7 @@ import {
   kyiv,
   london,
   newyork,
+  tokyo,
 } from '../assets/cities/cities';
 
 export const cities = [
@@ -12,4 +13,5 @@ export const cities = [
   { id: '2', title: 'New York', image: newyork },
   { id: '3', title: 'Kharkiv', image: kharkiv },
   { id: '4', title: 'Donetsk', image: donetsk },
+  { id: '5', title: 'Tokyo', image: tokyo },
 ];

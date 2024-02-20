@@ -1,11 +1,7 @@
 import { useCallback } from 'react';
-import { getTodayWeather } from '../../helpers';
+import { getInfo } from '../../helpers';
 import { useTripContext } from '../../providers/TripProvider';
 import styles from './TripCard.module.scss';
-
-// const key = process.env.API_KEY;
-// const key = 'GHKZSUEP7Q6TUTY2WDYCKT7ES';
-const key = 'RCGZHLUGV7BJP85PC4Z5F64WV';
 
 export interface TripCardProps {
   id: string;
@@ -19,18 +15,12 @@ const TripCard: React.FC<TripCardProps> = ({ id, image, city, dates }) => {
 
   const [firstDate, finalDate] = dates;
 
-  const getWeather = useCallback(async () => {
-    try {
-      const currentData = await getTodayWeather(city, key);
-      currentData.firstDayTrip = firstDate;
-      addTodayWeather(currentData);
-    } catch (error) {
-      console.error('Error fetching weather:', error);
-    }
-  }, [addTodayWeather, city, firstDate]);
+  const handleWeather = useCallback(() => {
+    getInfo(city, firstDate, finalDate, addTodayWeather);
+  }, [addTodayWeather, city, finalDate, firstDate]);
 
   return (
-    <article onClick={getWeather} id={id} className={styles.tripcard}>
+    <article onClick={handleWeather} id={id} className={styles.tripcard}>
       <img
         className={styles.tripcard__image}
         src={image}

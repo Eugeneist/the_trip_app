@@ -1,6 +1,8 @@
 .tripcard {
   border: 3px solid #f9f9f9;
   border-radius: 0.313rem;
+  transition: all 0.5s ease;
+  background-color: #fff;
   cursor: pointer;
 
   &__image {
@@ -22,5 +24,15 @@
     font-size: 0.8rem;
     color: darkgray;
     margin: 0;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    background-color: #f2efef;
+    transition: all 0.5s ease;
+  }
+
+  &:focus {
+    border-color: red;
   }
 }

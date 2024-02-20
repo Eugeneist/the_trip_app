@@ -6,4 +6,9 @@
   gap: 50px;
   min-height: 100vh;
   overflow: hidden;
+
+  &__forecast {
+    display: flex;
+    flex-direction: column;
+  }
 }

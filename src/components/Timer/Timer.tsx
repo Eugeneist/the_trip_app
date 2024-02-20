@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getDate } from '../../helpers';
 import styles from './Timer.module.scss';
 
 interface TiperProps {
@@ -13,9 +14,7 @@ interface TimerState {
 }
 
 const Timer: React.FC<TiperProps> = ({ date = '01.01.2030' }) => {
-  const [startDay, startMonth, startYear] = date.split('.');
-
-  const dateFrom = new Date(`${startYear}-${startMonth}-${startDay}`);
+  const dateFrom = getDate(date).normalizedDate;
   const dateCurrent = new Date().getTime();
 
   const calculateTime = (): TimerState => {
@@ -52,7 +51,7 @@ const Timer: React.FC<TiperProps> = ({ date = '01.01.2030' }) => {
 
   const { days, hours, minutes, seconds } = time;
 
-  if (days <= 0) {
+  if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
     return (
       <section className={styles.timer}>
         <p>Trip already started!</p>

@@ -1,0 +1,38 @@
+.daycard {
+  width: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+
+  &__day {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #c8c7cf;
+  }
+
+  &__icon {
+    width: 5rem;
+  }
+
+  &__temperatures {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  &__temp {
+    margin: 0;
+    font-size: 0.9rem;
+    position: relative;
+
+    &::after {
+      content: '°';
+      position: absolute;
+      top: 0;
+      right: -0.313rem;
+    }
+  }
+}

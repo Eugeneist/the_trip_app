@@ -1,11 +1,28 @@
+import { useEffect } from 'react';
+import { getInfo } from '../../helpers';
+import { useTripContext } from '../../providers/TripProvider';
+import { TripList, TodayInfo, ForecastList } from '../../components';
 import styles from './MainPage.module.scss';
-import { TripList, TodayInfo } from '../../components';
 
 const MainPage = () => {
+  // для першого завантаження мокап даних:
+
+  const { trips, addTodayWeather } = useTripContext();
+
+  const [{ city, dates } = trips[0]] = trips;
+
+  const fromDate = dates[0];
+  const toDate = dates[1];
+
+  useEffect(() => {
+    getInfo(city, fromDate, toDate, addTodayWeather);
+  }, []);
+
   return (
     <main className={styles.main}>
-      <div>
+      <div className={styles.main__forecast}>
         <TripList />
+        <ForecastList />
       </div>
       <TodayInfo />
     </main>

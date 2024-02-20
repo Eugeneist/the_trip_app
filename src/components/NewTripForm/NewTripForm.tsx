@@ -46,7 +46,6 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
       dates: [fromDate, toDate],
     };
     addTrip(newTrip);
-    console.log(newTrip);
     onClose();
   };
 
