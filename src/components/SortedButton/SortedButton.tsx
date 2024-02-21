@@ -15,14 +15,18 @@ const SortedButton = () => {
       const sortedTrips = [...filteredTrips].sort((a, b) => {
         const dateA = getDate(a.dates[0]).normalizedDate;
         const dateB = getDate(b.dates[0]).normalizedDate;
-        return dateA - dateB;
+        return Number(dateA) - Number(dateB);
       });
 
       localStorage.setItem('prevTrips', JSON.stringify(filteredTrips));
       addSortedTrips(sortedTrips);
     } else {
-      const prevTrips = JSON.parse(localStorage.getItem('prevTrips'));
-      addSortedTrips(prevTrips);
+      const prevLocalTrip = localStorage.getItem('prevTrips');
+      const prevTrips = prevLocalTrip ? JSON.parse(prevLocalTrip) : null;
+
+      if (prevTrips) {
+        addSortedTrips(prevTrips);
+      }
     }
 
     setIsSorted(!isSorted);

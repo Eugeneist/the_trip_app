@@ -5,6 +5,7 @@ import { TripCardProps } from '../TripCard/TripCard';
 import { Button } from '../Button';
 import { getRandomId } from '../../helpers';
 import { cities } from '../../data/cities';
+import { deft } from '../../assets/cities/cities';
 import styles from './NewTripForm.module.scss';
 
 export interface FormValues {
@@ -40,8 +41,8 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
 
     const newTrip: TripCardProps = {
       id,
-      image: selectedCity.image,
-      city: selectedCity.title,
+      image: selectedCity ? selectedCity.image : deft,
+      city: selectedCity ? selectedCity.title : 'city',
       dates: [fromDate, toDate],
     };
     addTrip(newTrip);
