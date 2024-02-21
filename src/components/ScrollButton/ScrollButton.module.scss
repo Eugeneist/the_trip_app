@@ -1,0 +1,49 @@
+@mixin scrollbutton {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(24, 28, 76, 0.8);
+  border: none;
+  color: #f6f6f6;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.horizontalscroll_container {
+  position: relative;
+  overflow-x: hidden;
+  padding: 0 1.875rem;
+}
+
+.scroll__content {
+  flex-wrap: nowrap;
+  display: flex;
+  max-width: 40rem;
+  align-items: start;
+  gap: 2.375rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+.scrollbutton_left {
+  left: 0;
+  @include scrollbutton;
+}
+
+.scrollbutton_right {
+  right: 0;
+  @include scrollbutton;
+}
+
+@media all and (max-width: 900px) {
+  .scroll__content {
+    flex-direction: column;
+  }
+
+  .scrollbutton_left,
+  .scrollbutton_right {
+    display: none;
+  }
+}

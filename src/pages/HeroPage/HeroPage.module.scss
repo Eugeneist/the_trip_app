@@ -41,3 +41,14 @@
     -webkit-text-stroke: 1px rgb(82, 189, 183);
   }
 }
+
+@media all and (max-width: 1200px) {
+  .hero {
+    align-items: center;
+
+    &__box {
+      background-color: rgba(109, 214, 209, 1);
+      border: 1px solid rgba(109, 214, 209, 1);
+    }
+  }
+}

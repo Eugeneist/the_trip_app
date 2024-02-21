@@ -18,7 +18,7 @@ const SortedButton = () => {
         return dateA - dateB;
       });
 
-      localStorage.setItem('prevTrips', JSON.stringify(sortedTrips));
+      localStorage.setItem('prevTrips', JSON.stringify(filteredTrips));
       addSortedTrips(sortedTrips);
     } else {
       const prevTrips = JSON.parse(localStorage.getItem('prevTrips'));

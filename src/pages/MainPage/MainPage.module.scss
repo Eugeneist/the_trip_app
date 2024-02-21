@@ -40,19 +40,39 @@
   }
 }
 
+.loader {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media all and (max-width: 1200px) {
   .main {
     flex-direction: column-reverse;
 
     &__forecast {
-      align-items: center;
+      align-items: start;
       justify-content: center;
+    }
+  }
+}
+
+@media all and (max-width: 900px) {
+  .main {
+    &__forecast {
+      align-items: center;
     }
   }
 }
 
 @media all and (max-width: 500px) {
   .main {
+    &__forecast {
+      align-items: center;
+    }
+
     &__searchbox {
       flex-direction: column;
       gap: 3rem;

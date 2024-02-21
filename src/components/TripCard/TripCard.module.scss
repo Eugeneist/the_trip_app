@@ -3,6 +3,7 @@
   border-radius: 0.313rem;
   transition: all 0.5s ease;
   background-color: #fff;
+  position: relative;
   cursor: pointer;
 
   &__image {
@@ -24,6 +25,22 @@
     font-size: 0.8rem;
     color: darkgray;
     margin: 0;
+  }
+
+  &__btnclose {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+
+    :hover {
+      background-color: rgba(24, 28, 76, 1);
+    }
   }
 
   &:hover {

@@ -11,7 +11,7 @@ export interface TripCardProps {
 }
 
 const TripCard: React.FC<TripCardProps> = ({ id, image, city, dates }) => {
-  const { addTodayWeather } = useTripContext();
+  const { addTodayWeather, deleteTrip, trips } = useTripContext();
 
   const [firstDate, finalDate] = dates;
 
@@ -21,6 +21,13 @@ const TripCard: React.FC<TripCardProps> = ({ id, image, city, dates }) => {
 
   return (
     <article onClick={handleWeather} id={id} className={styles.tripcard}>
+      <button
+        className={styles.tripcard__btnclose}
+        style={{ display: trips.length > 1 ? 'block' : 'none' }}
+        onClick={() => deleteTrip(id)}
+      >
+        ✕
+      </button>
       <img
         className={styles.tripcard__image}
         src={image}

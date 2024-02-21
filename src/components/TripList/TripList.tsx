@@ -4,6 +4,7 @@ import { TripCard } from '../TripCard';
 import { NewTripButton } from '../NewTripButton';
 import { Modal } from '../Modal';
 import { NewTripForm } from '../NewTripForm/';
+import { ScrollButton } from '../ScrollButton';
 import styles from './TripList.module.scss';
 
 const TripList: React.FC = () => {
@@ -20,11 +21,11 @@ const TripList: React.FC = () => {
 
   return (
     <section className={styles.triplist}>
-      <div className={styles.triplist__box}>
+      <ScrollButton showButton={filteredTrips.length > 3}>
         {filteredTrips.map(({ id, image, city, dates }) => (
           <TripCard key={id} id={id} image={image} city={city} dates={dates} />
         ))}
-      </div>
+      </ScrollButton>
       <NewTripButton onClick={openModal} />
       {showModal && (
         <Modal title="Create trip" onClose={closeModal}>

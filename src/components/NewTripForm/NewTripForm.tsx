@@ -38,8 +38,6 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
     const selectedCityId = data.city;
     const selectedCity = cities.find((city) => city.id === selectedCityId);
 
-    // винести у функцію helper?
-
     const newTrip: TripCardProps = {
       id,
       image: selectedCity.image,

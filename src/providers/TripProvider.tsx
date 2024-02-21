@@ -8,6 +8,7 @@ interface TripContextType {
   filteredTrips: TripCardProps[];
   currentTrip: any;
   addTrip: (trip: TripCardProps) => void;
+  deleteTrip: (id: string) => void;
   filterTrips: (searchQuery: string) => void;
   addSortedTrips: (trips: TripCardProps[]) => void;
   clearFiltered: () => void;
@@ -57,6 +58,11 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
     setTrips((prevTrips) => [...prevTrips, trip]);
   };
 
+  const deleteTrip = (id: string) => {
+    const withoutTrip = trips.filter((item: TripCardProps) => item.id !== id);
+    setTrips(withoutTrip);
+  };
+
   const filterTrips = (searchQuery: string) => {
     const filtered = trips.filter((trip) =>
       trip.city.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -90,6 +96,7 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
     filteredTrips,
     currentTrip,
     addTrip,
+    deleteTrip,
     filterTrips,
     addSortedTrips,
     clearFiltered,

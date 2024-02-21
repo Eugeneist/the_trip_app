@@ -1,28 +1,25 @@
-import { useEffect } from 'react';
-import { getInfo } from '../../helpers';
-import { useTripContext } from '../../providers/TripProvider';
 import {
   TripList,
   TodayInfo,
   ForecastList,
   Searchbar,
   SortedButton,
+  Loader,
 } from '../../components';
+import { useFirstLoad } from '../../hooks';
 import styles from './MainPage.module.scss';
 
 const MainPage = () => {
   // для першого завантаження мокап даних:
+  const { loading } = useFirstLoad();
 
-  const { trips, addTodayWeather } = useTripContext();
-
-  const [{ city, dates } = trips[0]] = trips;
-
-  const fromDate = dates[0];
-  const toDate = dates[1];
-
-  useEffect(() => {
-    getInfo(city, fromDate, toDate, addTodayWeather);
-  }, []);
+  if (loading) {
+    return (
+      <main className={styles.loader}>
+        <Loader />
+      </main>
+    );
+  }
 
   return (
     <main className={styles.main}>

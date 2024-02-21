@@ -11,3 +11,4 @@ export { Loader } from './Loader';
 export { ForecastList } from './Weather';
 export { Searchbar } from './Searchbar';
 export { SortedButton } from './SortedButton';
+export { ScrollButton } from './ScrollButton';
