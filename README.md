@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+The Weather Forecast App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Додаток планування подорожей, де користувачі можуть бачити прогноз погоди для своїх майбутніх подорожей у різні міста.
 
-Currently, two official plugins are available:
+Використаний стек технологій: React + Vite, TypeScript, SCSS modules, React Router, axios, React Hook Form.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Після запуску програми користувач має список подорожей, який може доповнювати використавши спеціальну форму. Якщо список більше, ніж на 3 поїздки, з'являються кнопки, що прокручують список.
 
-## Expanding the ESLint configuration
+Користувач може вибрати поїздку клікнувши на неї. Після цього на боковій панелі відображається  сьогоднішня погода у вибраному місті, а також таймер зворотнього відліку до старту подорожі. Знизу користувач може бачити погоду на кожен із запланованих днів подорожі. Додана можливість не тільки додавати, а й видаляти подорожі, натиснувши на хрестик у кутку картки подорожі.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Також користувач має змогу шукати подорож серед наявних за ім'ям використовуючи спеціальне поле для пошуку. Поряд з ним є багаторазова кнопка яка фільтрує наявні подорожі за їх початковою датою. Натиснувши другий раз сортування повертається за порядком додавання подорожей.
 
-- Configure the top-level `parserOptions` property like this:
+Перезавантиживши сторінку дані не зникнуть, бо надійно зберігаються у Local Storage браузера.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Додаток повністю адаптований під різні пристрої (мобільні телефони, планшети, різні екрани ноутбуків чи ПК).
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Додаток розроблений із багатокомпонентним підходом, має добре розділену логіку та UI частини.
+
+Деплой додатку зроблений на платформі Vercel.
+Його Ви можете знайти за посиланням: https://the-trip-app.vercel.app/
+
+![screen3](https://github.com/Eugeneist/the_trip_app/assets/91960555/2d45db23-5cba-420a-9291-9c225fa26238)
+![screen2](https://github.com/Eugeneist/the_trip_app/assets/91960555/37808798-ea66-4f09-a0c5-9703499b7743)
+![screen1](https://github.com/Eugeneist/the_trip_app/assets/91960555/824d8492-f3f6-4bcd-9700-e2f0416f3306)
+
+
