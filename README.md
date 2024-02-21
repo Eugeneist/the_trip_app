@@ -21,6 +21,7 @@ The Weather Forecast App
 
 ![screen3](https://github.com/Eugeneist/the_trip_app/assets/91960555/2d45db23-5cba-420a-9291-9c225fa26238)
 ![screen2](https://github.com/Eugeneist/the_trip_app/assets/91960555/37808798-ea66-4f09-a0c5-9703499b7743)
+![screen4](https://github.com/Eugeneist/the_trip_app/assets/91960555/21f4c26a-5e0d-4c98-94b4-73d6f04e227d)
 ![screen1](https://github.com/Eugeneist/the_trip_app/assets/91960555/824d8492-f3f6-4bcd-9700-e2f0416f3306)
 
 
