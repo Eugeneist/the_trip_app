@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { getInfo } from '../../helpers';
 import { useTripContext } from '../../providers/TripProvider';
-import { TripList, TodayInfo, ForecastList } from '../../components';
+import { TripList, TodayInfo, ForecastList, Searchbar } from '../../components';
 import styles from './MainPage.module.scss';
 
 const MainPage = () => {
@@ -20,10 +20,14 @@ const MainPage = () => {
 
   return (
     <main className={styles.main}>
-      <div className={styles.main__forecast}>
+      <section className={styles.main__forecast}>
+        <h1 className={styles.main__forecast__title}>
+          Weather <p className={styles.main__forecast__title_bold}>Forecast</p>
+        </h1>
+        <Searchbar />
         <TripList />
         <ForecastList />
-      </div>
+      </section>
       <TodayInfo />
     </main>
   );

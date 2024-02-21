@@ -5,10 +5,25 @@
   justify-content: space-between;
   gap: 50px;
   min-height: 100vh;
+  height: 100%;
   overflow: hidden;
 
   &__forecast {
     display: flex;
     flex-direction: column;
+    padding: 0 0.5rem;
+
+    &__title {
+      display: flex;
+      gap: 0.4rem;
+      margin: 0 0 2rem 1.3rem;
+      font-size: 1.3rem;
+      font-weight: 300;
+
+      &_bold {
+        font-weight: bold;
+        margin: 0;
+      }
+    }
   }
 }

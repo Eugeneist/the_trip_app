@@ -7,7 +7,7 @@ import { NewTripForm } from '../NewTripForm/';
 import styles from './TripList.module.scss';
 
 const TripList: React.FC = () => {
-  const { trips } = useTripContext();
+  const { filteredTrips } = useTripContext();
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -21,7 +21,7 @@ const TripList: React.FC = () => {
   return (
     <section className={styles.triplist}>
       <div className={styles.triplist__box}>
-        {trips.map(({ id, image, city, dates }) => (
+        {filteredTrips.map(({ id, image, city, dates }) => (
           <TripCard key={id} id={id} image={image} city={city} dates={dates} />
         ))}
       </div>

@@ -2,7 +2,7 @@ import { getTodayWeather } from '../getTodayWeather';
 import { getAllTripWeather } from '../getAllTripWeather';
 import { getDate } from '..';
 
-const key = process.env.API_KEY;
+const key = import.meta.env.VITE_API_KEY;
 
 const getInfo = async (
   city: string,

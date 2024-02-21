@@ -5,3 +5,4 @@ export { getDayOfWeek } from './getDayOfWeek';
 export { getWeatherIcon } from './getWeatherIcon';
 export { getInfo } from './getInfo';
 export { getDate } from './getDate';
+export { getRandomId } from './getRandomId';

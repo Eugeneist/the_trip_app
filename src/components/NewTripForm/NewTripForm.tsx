@@ -3,6 +3,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useTripContext } from '../../providers/TripProvider';
 import { TripCardProps } from '../TripCard/TripCard';
 import { Button } from '../Button';
+import { getRandomId } from '../../helpers';
 import { cities } from '../../data/cities';
 import styles from './NewTripForm.module.scss';
 
@@ -29,7 +30,7 @@ const NewTripForm: React.FC<NewTripFormProps> = ({ onClose }) => {
 
   const startDate = watch('startDate');
 
-  const id = useId();
+  const id = useId() + getRandomId();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const fromDate = new Date(data.startDate).toLocaleDateString();
