@@ -28,7 +28,9 @@ const MainPage = () => {
         <TripList />
         <ForecastList />
       </section>
-      <TodayInfo />
+      <section className={styles.main__aside}>
+        <TodayInfo />
+      </section>
     </main>
   );
 };

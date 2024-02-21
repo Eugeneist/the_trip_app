@@ -6,11 +6,24 @@
 
   &__box {
     display: flex;
-    max-width: 45rem;
+    max-width: 40rem;
     align-items: start;
     gap: 2.375rem;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 0 20px 20px 20px;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .triplist {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    &__box {
+      flex-direction: column;
+    }
   }
 }

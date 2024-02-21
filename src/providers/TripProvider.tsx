@@ -61,7 +61,6 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
       trip.city.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     setFilteredTrips(filtered);
-    console.log(filtered);
   };
 
   const clearFiltered = () => {

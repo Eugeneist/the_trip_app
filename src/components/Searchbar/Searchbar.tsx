@@ -7,7 +7,7 @@ const Searchbar: React.FC = () => {
     localStorage.getItem('searchQuery') || '',
   );
 
-  const { filterTrips, clearFiltered, trips, filteredTrips } = useTripContext();
+  const { filterTrips, clearFiltered, trips } = useTripContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -18,11 +18,9 @@ const Searchbar: React.FC = () => {
     if (searchQuery.length > 0) {
       filterTrips(searchQuery);
       localStorage.setItem('searchQuery', searchQuery);
-      console.log(filteredTrips);
     } else {
       localStorage.removeItem('searchQuery');
       clearFiltered();
-      console.log(filteredTrips);
     }
     localStorage.setItem('searchQuery', searchQuery);
   }, [searchQuery, trips]);

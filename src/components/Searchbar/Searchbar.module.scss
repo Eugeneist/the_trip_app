@@ -1,15 +1,15 @@
 .searchbar {
-  margin: 0 1rem 2rem 1rem;
-  padding: 1px 5px 20px 5px;
+  margin: 0 1rem 1rem 1rem;
+  padding: 0.063rem 0.313rem 1.25rem 0.313rem;
   color: #000;
 
   &__form {
     width: 13rem;
     display: flex;
-    padding: 16px 19px;
+    padding: 1rem 1.188rem;
     background-color: #f3f4f8;
     border: 1px solid #f3f4f8;
-    border-radius: 8px;
+    border-radius: 0.5rem;
   }
 
   &__input {
@@ -19,7 +19,7 @@
     border: 0px;
     background: none;
     margin: 0px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
 
     &:active {
@@ -45,10 +45,10 @@
     position: relative;
     box-sizing: border-box;
     background-color: transparent;
-    outline: 0px;
-    border: 0px;
-    margin: 0px;
-    padding: 0px 11.5px 0px 0px;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    padding: 0 0.75rem 0 0;
     cursor: pointer;
     user-select: none;
     vertical-align: middle;

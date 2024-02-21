@@ -2,6 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 16px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -30,4 +31,40 @@ body {
   height: 100%;
   background-color: #fff;
   color: #000;
+}
+
+@media all and (max-width: 1450px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 1350px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 1250px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 1160px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 1075px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  html {
+    font-size: 10px;
+  }
 }

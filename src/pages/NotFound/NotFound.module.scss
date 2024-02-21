@@ -1,0 +1,15 @@
+.notfound {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background-color: #f8f8f8;
+
+  &__nav {
+    display: flex;
+    gap: 2rem;
+  }
+}

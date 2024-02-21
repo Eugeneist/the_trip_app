@@ -3,12 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
+  gap: 3.125rem;
   min-height: 100vh;
   height: 100%;
   overflow: hidden;
 
   &__forecast {
+    flex: 60%;
     display: flex;
     flex-direction: column;
     padding: 0 0.5rem;
@@ -24,6 +25,21 @@
         font-weight: bold;
         margin: 0;
       }
+    }
+  }
+
+  &__aside {
+    flex: 30%;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .main {
+    flex-direction: column-reverse;
+
+    &__forecast {
+      align-items: center;
+      justify-content: center;
     }
   }
 }
