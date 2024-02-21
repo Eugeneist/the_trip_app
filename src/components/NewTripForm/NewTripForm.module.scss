@@ -30,12 +30,13 @@
   }
 
   &__input {
+    min-width: 95%;
     height: 1.5rem;
     padding: 0.313rem;
     margin-bottom: 0.6rem;
     border: 1px solid #d8d8d8;
     color: #9a9898;
-    cursor: pointer;
+    display: block;
   }
 
   &__bigger {
