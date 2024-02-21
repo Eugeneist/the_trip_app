@@ -1,6 +1,7 @@
 .button {
   display: inline-block;
   align-items: center;
+  flex-shrink: 0;
   cursor: pointer;
 }
 

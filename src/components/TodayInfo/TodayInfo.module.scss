@@ -1,5 +1,4 @@
 .todayinfo {
-  min-width: 29.5rem;
   height: 100vh;
   overflow: hidden;
   padding: 1rem;
@@ -16,7 +15,7 @@
   font-weight: bold;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 1200px) {
   .todayinfo {
     width: 100vw;
     height: 100%;

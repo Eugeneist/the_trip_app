@@ -36,3 +36,20 @@
     border-color: red;
   }
 }
+
+@media all and (max-width: 1450px) {
+  .tripcard {
+    &__image {
+      width: 8rem;
+      height: 7rem;
+    }
+
+    &__city {
+      font-size: 0.8rem;
+    }
+
+    &__dates {
+      font-size: 0.5rem;
+    }
+  }
+}

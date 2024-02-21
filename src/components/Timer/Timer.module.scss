@@ -27,6 +27,20 @@
   }
 }
 
+@media all and (max-width: 1450px) {
+  .timer {
+    gap: 2rem;
+
+    &__numbers {
+      font-size: 1.3rem;
+    }
+
+    &__words {
+      font-size: 0.6rem;
+    }
+  }
+}
+
 @media all and (max-width: 900px) {
   .timer {
     gap: 2rem;

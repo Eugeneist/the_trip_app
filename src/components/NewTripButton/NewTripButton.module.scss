@@ -16,3 +16,11 @@
     transition: background-color 0.4s ease;
   }
 }
+
+@media all and (max-width: 1450px) {
+  .newtripbutton {
+    width: 7rem;
+    height: 7rem;
+    font-size: 1rem;
+  }
+}

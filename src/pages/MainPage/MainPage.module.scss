@@ -31,15 +31,41 @@
   &__aside {
     flex: 30%;
   }
+
+  &__searchbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.063rem 0.313rem 2.25rem 0.313rem;
+  }
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 1200px) {
   .main {
     flex-direction: column-reverse;
 
     &__forecast {
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+@media all and (max-width: 500px) {
+  .main {
+    &__searchbox {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+}
+
+@media all and (max-height: 700px) {
+  .main {
+    &__forecast {
+      &__title {
+        display: none;
+      }
     }
   }
 }

@@ -9,6 +9,7 @@ interface TripContextType {
   currentTrip: any;
   addTrip: (trip: TripCardProps) => void;
   filterTrips: (searchQuery: string) => void;
+  addSortedTrips: (trips: TripCardProps[]) => void;
   clearFiltered: () => void;
   addTodayWeather: (data: any) => void;
 }
@@ -63,6 +64,10 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
     setFilteredTrips(filtered);
   };
 
+  const addSortedTrips = (trips: any) => {
+    setFilteredTrips(trips);
+  };
+
   const clearFiltered = () => {
     setFilteredTrips(trips);
   };
@@ -86,6 +91,7 @@ export const TripProvider: React.FC<TripProviderProps> = ({ children }) => {
     currentTrip,
     addTrip,
     filterTrips,
+    addSortedTrips,
     clearFiltered,
     addTodayWeather,
   };

@@ -40,3 +40,30 @@
     margin: 0;
   }
 }
+
+@media all and (max-width: 1450px) {
+  .todaywidget {
+    &__day {
+      font-size: 1.5rem;
+    }
+
+    &__weather {
+      font-size: 3rem;
+
+      &_icon {
+        width: 5rem;
+      }
+
+      &_temperature {
+        &::after {
+          top: 0.875rem;
+          right: 1.313rem;
+        }
+      }
+    }
+
+    &__city {
+      font-size: 1.5rem;
+    }
+  }
+}

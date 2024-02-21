@@ -1,6 +1,5 @@
 .searchbar {
-  margin: 0 1rem 1rem 1rem;
-  padding: 0.063rem 0.313rem 1.25rem 0.313rem;
+  margin: 0 1rem;
   color: #000;
 
   &__form {
@@ -66,7 +65,7 @@
     }
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 800px) {
     &__form {
       width: 17.5rem;
     }
